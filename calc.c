@@ -105,6 +105,12 @@ void logarithm() {
 
 }
 
+void absolute() {
+
+  push(fabsl(pop()));
+
+}
+
 void parse_token(char * ptoken) {
 
   if (strcmp(ptoken, "+") == 0) {
@@ -127,6 +133,9 @@ void parse_token(char * ptoken) {
     return;
   } else if (strcmp(ptoken, "log") == 0) {
     logarithm();
+    return;
+  } else if (strcmp(ptoken, "abs") == 0) {
+    absolute();
     return;
   } else if (strcmp(ptoken, ".") == 0) {
     printf("%Lg\n", peek());
