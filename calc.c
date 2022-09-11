@@ -99,6 +99,12 @@ void root() {
 
 }
 
+void logarithm() {
+
+  push(log(pop()) / log(pop()));
+
+}
+
 void parse_token(char * ptoken) {
 
   if (strcmp(ptoken, "+") == 0) {
@@ -119,10 +125,13 @@ void parse_token(char * ptoken) {
   } else if (strcmp(ptoken, "root") == 0) {
     root();
     return;
+  } else if (strcmp(ptoken, "log") == 0) {
+    logarithm();
+    return;
   } else if (strcmp(ptoken, ".") == 0) {
     printf("%Lg\n", peek());
     return;
-  } else if (strtold(ptoken, NULL) != 0) {
+  } else if (strtold(ptoken, NULL) != 0 || strcmp(ptoken, "0") == 0) {
     push(strtold(ptoken, NULL));
     return;
   }
