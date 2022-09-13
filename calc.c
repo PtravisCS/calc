@@ -3,15 +3,9 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <math.h>
+#include "stack.h"
 
-#define MAX_STACK_DEPTH 1000000
 int mode = 0;
-
-typedef struct stackStruct {
-  int depth;
-  int ptr;
-  long double data[MAX_STACK_DEPTH];
-} stackStruct;
 
 int push(long double num, struct stackStruct * stack) {
 
