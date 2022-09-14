@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <math.h>
+#include <tgmath.h>
 
 int push(long double num, struct stackStruct * stack) {
 
@@ -36,7 +37,7 @@ long double pop(struct stackStruct * stack) {
 
   } else {
 
-    printf("Stack Undeflow\n");
+    printf("Stack Underflow\n");
     exit(EXIT_FAILURE);
 
   }
@@ -99,7 +100,11 @@ void divide(stackStruct * stack) {
 
 void exponent(stackStruct * stack) {
 
-  push(powl(pop(stack), pop(stack)), stack);
+  long double num1 = pop(stack);
+  long double num2 = pop(stack);
+  long double result = powl(num1, num2);
+
+  push(result, stack);
 
 }
 
